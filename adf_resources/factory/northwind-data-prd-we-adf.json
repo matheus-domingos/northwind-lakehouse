@@ -1,0 +1,9 @@
+{
+	"name": "northwind-data-prd-we-adf",
+	"location": "westeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "01e14e3d-d340-4782-bcc7-1f19e3b02571",
+		"tenantId": "66c31448-77b7-455e-919b-c54370919cf8"
+	}
+}
