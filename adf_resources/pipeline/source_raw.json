@@ -40,6 +40,10 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
+					"items": {
+						"value": "@activity('LKP_Dynamic_Control_Table').output.value",
+						"type": "Expression"
+					},
 					"activities": [
 						{
 							"name": "Northwind to Raw",
