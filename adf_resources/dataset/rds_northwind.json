@@ -1,0 +1,20 @@
+{
+	"name": "rds_northwind",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "northwind_rds",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"ProcessSourceLocation": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "MySqlTable",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "@dataset().ProcessSourceLocation"
+		}
+	}
+}
