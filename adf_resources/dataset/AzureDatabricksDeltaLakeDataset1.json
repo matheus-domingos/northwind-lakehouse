@@ -1,0 +1,61 @@
+{
+	"name": "AzureDatabricksDeltaLakeDataset1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "northwind_lakehouse",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureDatabricksDeltaLakeDataset",
+		"typeProperties": {
+			"database": "control",
+			"table": "control_process"
+		},
+		"schema": [
+			{
+				"name": "process_level_id",
+				"type": "integer"
+			},
+			{
+				"name": "process_name",
+				"type": "string"
+			},
+			{
+				"name": "process_folder_path",
+				"type": "string"
+			},
+			{
+				"name": "process_description",
+				"type": "string"
+			},
+			{
+				"name": "process_source_name",
+				"type": "string"
+			},
+			{
+				"name": "process_source_location",
+				"type": "string"
+			},
+			{
+				"name": "process_source_container",
+				"type": "string"
+			},
+			{
+				"name": "process_source_storage_account",
+				"type": "string"
+			},
+			{
+				"name": "process_target_container",
+				"type": "string"
+			},
+			{
+				"name": "process_target_storage_account",
+				"type": "string"
+			},
+			{
+				"name": "process_query_ovewrite",
+				"type": "string"
+			}
+		]
+	}
+}
