@@ -1,10 +1,10 @@
 {
 	"name": "source_raw",
 	"properties": {
-		"description": "Pipeling for ingesting Northwind data to raw layer",
+		"description": "Pipeling for ingesting Northwind data to raw layer.",
 		"activities": [
 			{
-				"name": "Lookup Raw",
+				"name": "LKP_Dynamic_Control_Table",
 				"description": "Lookup for retrieving raw pipelines",
 				"type": "Lookup",
 				"dependsOn": [],
@@ -32,7 +32,7 @@
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "Lookup Raw",
+						"activity": "LKP_Dynamic_Control_Table",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -46,7 +46,7 @@
 					},
 					"activities": [
 						{
-							"name": "Northwind to Raw",
+							"name": "northwind_to_raw",
 							"description": "Copy data from AWS RDS Northwind database to Raw layer",
 							"type": "Copy",
 							"dependsOn": [],
@@ -61,9 +61,26 @@
 							"typeProperties": {
 								"source": {
 									"type": "MySqlSource",
-									"query": "@item().process_source_location"
+									"query": "@item().process_query_overwrite"
 								},
-								"enableStaging": false
+								"sink": {
+									"type": "ParquetSink",
+									"storeSettings": {
+										"type": "AzureBlobFSWriteSettings"
+									},
+									"formatSettings": {
+										"type": "ParquetWriteSettings"
+									}
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
 							},
 							"inputs": [
 								{
@@ -71,6 +88,17 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"process_source_location": "@item().process_source_location"
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "ds_parquet_target_raw_layer",
+									"type": "DatasetReference",
+									"parameters": {
+										"process_tag_container": "@item().process_target_container",
+										"process_target_location": "@item().process_target_location",
+										"process_target_name": "@item().process_target_location"
 									}
 								}
 							]

@@ -1,0 +1,35 @@
+{
+	"name": "ds_parquet_target_raw_layer",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_northind_adls",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"process_tag_container": {
+				"type": "String"
+			},
+			"process_target_location": {
+				"type": "String"
+			},
+			"process_target_name": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "@dataset().process_target_name",
+				"folderPath": "@dataset().process_target_location",
+				"fileSystem": {
+					"value": "@dataset().process_tag_container",
+					"type": "Expression"
+				}
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
