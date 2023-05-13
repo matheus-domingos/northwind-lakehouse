@@ -6,7 +6,7 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"ProcessSourceLocation": {
+			"process_source_location": {
 				"type": "string"
 			}
 		},
@@ -14,7 +14,7 @@
 		"type": "MySqlTable",
 		"schema": [],
 		"typeProperties": {
-			"tableName": "@dataset().ProcessSourceLocation"
+			"tableName": "@dataset().process_source_location"
 		}
 	}
 }

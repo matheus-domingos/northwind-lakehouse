@@ -56,14 +56,18 @@
 							"userProperties": [],
 							"typeProperties": {
 								"source": {
-									"type": "MySqlSource"
+									"type": "MySqlSource",
+									"query": "@item().process_source_location"
 								},
 								"enableStaging": false
 							},
 							"inputs": [
 								{
 									"referenceName": "rds_northwind",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"process_source_location": "@item().process_source_location"
+									}
 								}
 							]
 						}
