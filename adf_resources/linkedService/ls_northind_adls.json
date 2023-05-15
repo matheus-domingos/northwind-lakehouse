@@ -2,7 +2,7 @@
 	"name": "ls_northind_adls",
 	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
-		"description": "Linked service to Nowrthwind data lake storage account",
+		"description": "Linked service to Northwind data lake storage account",
 		"annotations": [],
 		"type": "AzureBlobFS",
 		"typeProperties": {
