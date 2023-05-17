@@ -100,9 +100,9 @@
 									"referenceName": "ds_parquet_target_raw_layer",
 									"type": "DatasetReference",
 									"parameters": {
-										"process_tag_container": "@item().process_target_container",
-										"process_target_location": "@item().process_target_location",
-										"process_target_name": "@item().process_target_location"
+										"process_target_container": "@item().process_target_container",
+										"process_target_location": "@item().process_target_name",
+										"process_target_name": "@item().process_source_name"
 									}
 								}
 							]

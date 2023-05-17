@@ -6,7 +6,7 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"process_tag_container": {
+			"process_target_container": {
 				"type": "String"
 			},
 			"process_target_location": {
@@ -21,10 +21,16 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "@dataset().process_target_name",
-				"folderPath": "@dataset().process_target_location",
+				"fileName": {
+					"value": "@dataset().process_target_name",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().process_target_location",
+					"type": "Expression"
+				},
 				"fileSystem": {
-					"value": "@dataset().process_tag_container",
+					"value": "@dataset().process_target_container",
 					"type": "Expression"
 				}
 			},
