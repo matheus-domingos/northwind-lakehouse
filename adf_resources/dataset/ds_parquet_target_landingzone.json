@@ -2,7 +2,7 @@
 	"name": "ds_parquet_target_landingzone",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ls_northind_adls",
+			"referenceName": "ls_northwind_adls",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {

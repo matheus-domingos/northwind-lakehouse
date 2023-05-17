@@ -48,7 +48,7 @@
 					"activities": [
 						{
 							"name": "northwind_to_landingzone",
-							"description": "Copy data from AWS RDS Northwind database to Raw layer",
+							"description": "Copy data from AWS RDS Northwind database to Ladingzone layer",
 							"type": "Copy",
 							"dependsOn": [],
 							"policy": {
