@@ -1,0 +1,35 @@
+{
+	"name": "ds_parquet_target_landingzone",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_northind_adls",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"process_target_container": {
+				"type": "string"
+			},
+			"process_target_location": {
+				"type": "string"
+			},
+			"process_target_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "@dataset().process_target_name",
+				"folderPath": "@dataset().process_target_location",
+				"fileSystem": {
+					"value": "@dataset().process_target_container",
+					"type": "Expression"
+				}
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}

@@ -97,11 +97,14 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "ds_parquet_target_raw_layer",
+									"referenceName": "ds_parquet_target_landingzone",
 									"type": "DatasetReference",
 									"parameters": {
-										"process_target_container": "@item().process_target_container",
-										"process_target_location": "@item().process_target_name",
+										"process_target_container": {
+											"value": "@item().process_target_container",
+											"type": "Expression"
+										},
+										"process_target_location": "@item().process_target_location",
 										"process_target_name": "@item().process_source_name"
 									}
 								}
