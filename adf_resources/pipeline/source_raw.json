@@ -15,6 +15,7 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
+				"userProperties": [],
 				"typeProperties": {
 					"source": {
 						"type": "AzureDatabricksDeltaLakeSource",
@@ -46,7 +47,7 @@
 					},
 					"activities": [
 						{
-							"name": "northwind_to_raw",
+							"name": "northwind_to_landingzone",
 							"description": "Copy data from AWS RDS Northwind database to Raw layer",
 							"type": "Copy",
 							"dependsOn": [],
@@ -61,7 +62,10 @@
 							"typeProperties": {
 								"source": {
 									"type": "MySqlSource",
-									"query": "@item().process_query_overwrite"
+									"query": {
+										"value": "@item().process_query_overwrite",
+										"type": "Expression"
+									}
 								},
 								"sink": {
 									"type": "ParquetSink",
