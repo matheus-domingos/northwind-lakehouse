@@ -1,5 +1,5 @@
 {
-	"name": "AzureDatabricksDeltaLakeDataset1",
+	"name": "ds_delta_control_process",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "northwind_lakehouse",

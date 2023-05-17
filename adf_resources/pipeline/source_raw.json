@@ -5,7 +5,7 @@
 		"activities": [
 			{
 				"name": "LKP_Dynamic_Control_Table",
-				"description": "Lookup for retrieving raw pipelines",
+				"description": "Lookup for retrieving source to lading zone pipelines",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -22,7 +22,7 @@
 						"query": "SELECT * FROM control.control_process WHERE process_level_id = 1"
 					},
 					"dataset": {
-						"referenceName": "AzureDatabricksDeltaLakeDataset1",
+						"referenceName": "ds_delta_control_process",
 						"type": "DatasetReference"
 					},
 					"firstRowOnly": false
