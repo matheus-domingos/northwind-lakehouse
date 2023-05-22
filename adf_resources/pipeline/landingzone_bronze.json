@@ -59,7 +59,7 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"notebookPath": "/Repos/matheus.domingos@live.com/northwind-lakehouse/databricks_resources/1_bronze/dynamic_ladingzone_bronze",
+								"notebookPath": "/Repos/matheus.domingos@live.com/northwind-lakehouse/databricks_resources/1_bronze/dynamic_landingzone_bronze",
 								"baseParameters": {
 									"process_source_name": "@item().process_source_name"
 								}
