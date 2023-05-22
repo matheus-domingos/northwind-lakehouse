@@ -1,5 +1,5 @@
 {
-	"name": "source_raw",
+	"name": "source_landingzone",
 	"properties": {
 		"description": "Pipeling for ingesting Northwind data to raw layer.",
 		"activities": [
