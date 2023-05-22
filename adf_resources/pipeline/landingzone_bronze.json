@@ -23,7 +23,8 @@
 					"dataset": {
 						"referenceName": "ds_delta_control_process",
 						"type": "DatasetReference"
-					}
+					},
+					"firstRowOnly": false
 				}
 			},
 			{
@@ -67,7 +68,7 @@
 								"referenceName": "ls_northwind_databricks_notebook",
 								"type": "LinkedServiceReference",
 								"parameters": {
-									"p_notebook_path": "/Repos/matheus.domingos@live.com/northwind-lakehouse/databricks_resources/1_bronze/dynamic_ladingzone_bronze"
+									"p_notebook_path": "/Repos/matheus.domingos@live.com/northwind-lakehouse/databricks_resources/1_bronze/dynamic_landingzone_bronze"
 								}
 							}
 						}
