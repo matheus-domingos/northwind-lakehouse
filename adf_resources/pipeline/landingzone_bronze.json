@@ -18,7 +18,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureDatabricksDeltaLakeSource",
-						"query": "SELECT * FROM control.contorl_process WHERE process_level_id = 2"
+						"query": "SELECT * FROM control.control_process WHERE process_level_id = 2"
 					},
 					"dataset": {
 						"referenceName": "ds_delta_control_process",
