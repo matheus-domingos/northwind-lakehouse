@@ -1,5 +1,5 @@
 {
-	"name": "raw_to_bronze",
+	"name": "landingzone_bronze",
 	"properties": {
 		"description": "Pipeline for loading data to the Lakehouse",
 		"activities": [
@@ -56,7 +56,20 @@
 								"secureOutput": false,
 								"secureInput": false
 							},
-							"userProperties": []
+							"userProperties": [],
+							"typeProperties": {
+								"notebookPath": "/Repos/matheus.domingos@live.com/northwind-lakehouse/databricks_resources/1_bronze/dynamic_ladingzone_bronze",
+								"baseParameters": {
+									"process_source_name": "@item().process_source_name"
+								}
+							},
+							"linkedServiceName": {
+								"referenceName": "ls_northwind_databricks_notebook",
+								"type": "LinkedServiceReference",
+								"parameters": {
+									"p_notebook_path": "/Repos/matheus.domingos@live.com/northwind-lakehouse/databricks_resources/1_bronze/dynamic_ladingzone_bronze"
+								}
+							}
 						}
 					]
 				}
