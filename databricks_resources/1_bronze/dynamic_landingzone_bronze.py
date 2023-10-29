@@ -20,7 +20,6 @@ spark.sql("SET spark.databricks.delta.schema.autoMerge.enabled = true")
 # COMMAND ----------
 
 # defining variables
-# process_source_name = dbutils.widgets.get("process_source_name")
 process_source_name = 'suppliers'
 file_path = f"abfss://landingzone@{storage_account_name}.dfs.core.windows.net/northwind/{process_source_name}"
 table_path = f"abfss://bronze@{storage_account_name}.dfs.core.windows.net/northwind/{process_source_name}"
@@ -89,20 +88,6 @@ df = (spark
     .option("cloudFiles.schemaEvolutionMode","addNewColumns")
     .load(file_path)
     .select("*","_metadata"))
-
-# COMMAND ----------
-
-display(df)
-
-# COMMAND ----------
-
-# MAGIC %sql
-# MAGIC SELECT * FROM bronze_northwind.shippers
-
-# COMMAND ----------
-
-# MAGIC %sql
-# MAGIC SELECT * FROM delta.`abfss://bronze@adlsnorthwinddataprd.dfs.core.windows.net/northwind/shippers`
 
 # COMMAND ----------
 
