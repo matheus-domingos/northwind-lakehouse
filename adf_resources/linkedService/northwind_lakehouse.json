@@ -1,14 +1,14 @@
 {
 	"name": "northwind_lakehouse",
-	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"description": "Linked service to Northwind Databricks Lakehouse",
 		"annotations": [],
 		"type": "AzureDatabricksDeltaLake",
 		"typeProperties": {
 			"domain": "https://adb-6116607042201214.14.azuredatabricks.net",
-			"clusterId": "0513-145725-8ui8xk79",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDFGNDQyMDNELTYzRjMtNDZFQy1BRUYxLTJCODU0NDVFODk0Ml9mOTJkNTI4Yy1lNzAxLTQyNGMtYWNkZC04MDcyNmM2NTY2MjUiDQp9"
+			"clusterId": "0210-224751-s2f1svi7",
+			"workspaceResourceId": "/subscriptions/6f348849-9062-4a1c-baf3-c48b6af82c25/resourceGroups/northwind-data-prd-we-rg/providers/Microsoft.Databricks/workspaces/northwind-data-prd-we-adb"
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/linkedservices"
 }
