@@ -14,11 +14,10 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [],
 				"typeProperties": {
 					"source": {
 						"type": "AzureDatabricksDeltaLakeSource",
-						"query": "SELECT * FROM control.control_process WHERE process_level_id = 2"
+						"query": "SELECT process_source_name FROM control.control_process WHERE process_level_id = 2"
 					},
 					"dataset": {
 						"referenceName": "ds_delta_control_process",
@@ -38,7 +37,6 @@
 						]
 					}
 				],
-				"userProperties": [],
 				"typeProperties": {
 					"items": {
 						"value": "@activity('LKP_Dynamic_Control_Table').output.value",
@@ -61,7 +59,10 @@
 							"typeProperties": {
 								"notebookPath": "/Repos/matheus.domingos@live.com/northwind-lakehouse/databricks_resources/1_bronze/dynamic_landingzone_bronze",
 								"baseParameters": {
-									"process_source_name": "@item().process_source_name"
+									"process_source_name": {
+										"value": "@item().process_source_name",
+										"type": "Expression"
+									}
 								}
 							},
 							"linkedServiceName": {
