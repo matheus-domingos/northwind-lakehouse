@@ -1,12 +1,10 @@
 -- Databricks notebook source
--- Creating database for storing metadata to be used by ADF pipelines
-CREATE DATABASE control
-COMMENT "Datase used for pipelines"
+CREATE SCHEMA IF NOT EXISTS control
 
 -- COMMAND ----------
 
 -- Creating the table for the metadata used by ADF pipelines
-CREATE OR REPLACE TABLE control.control_process(
+CREATE OR REPLACE TABLE Control.control_process(
   process_level_id INT,
   process_name STRING,
   process_folder_path STRING,
@@ -294,7 +292,3 @@ INSERT INTO control.control_process VALUES(
   "northwind/employees",
   ""
 )
-
--- COMMAND ----------
-
-SELECT count(*) FROM control.control_process

@@ -1,27 +1,20 @@
-# Databricks notebook source
-from pyspark.sql.functions import *
-from pyspark.sql import *
-from pyspark.sql.types import StructType
+from pyspark.sql.functions import col, lit, struct
 
-# COMMAND ----------
-
-def add_metadata(df, source_system:str, ingestion_type: str):
+def add_metadata_save(df, batchId, source_name = 'source'):
     """Add a metadata struct on a DataFrame column
 
         Parameters: 
-        df(DataFrame): The Dataframe based on raw data
-        source_system(str): Source system of data in Raw
-        ingestion_type(str): batch or streaming
+        df(DataFrame): DataFrame with raw data
+        batchId: Id of micro-batch
 
-        Returns:
-        df(DataFrame): DataFrame containing raw data and a metadata column.
     """
-    # drop unnecessary metadata
+    
+    # removing unecessary columns
     df = df.withColumn("_metadata", col("_metadata").dropFields("file_path"))
     df = df.withColumn("_metadata", col("_metadata").dropFields("row_index"))
 
     # source system
-    df = df.withColumn("source_system",lit(source_system.upper()))
+    df = df.withColumn("source_system",lit("northwind"))
     df = df.withColumn("_metadata", struct(col("_metadata.*"),(col("source_system"))))
     df = df.drop("source_system")
     
@@ -31,8 +24,8 @@ def add_metadata(df, source_system:str, ingestion_type: str):
     df = df.drop("rows_written")
 
     # ingestion_type
-    df = df.withColumn("ingestion_type",lit(ingestion_type))
+    df = df.withColumn("ingestion_type",lit("batch"))
     df = df.withColumn("_metadata", struct(col("_metadata.*"),(col("ingestion_type"))))
     df = df.drop("ingestion_type")
 
-    return(df)
+    df.write.mode("append").format("delta").saveAsTable(f"bronze_northwind.{source_name}")
